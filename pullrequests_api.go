@@ -18,7 +18,7 @@ import (
 	"net/url"
 	"strings"
 
-	"golang.org/x/net/context"
+	"context"
 )
 
 // Linger please
@@ -586,6 +586,8 @@ Returns all pull requests on the specified repository.  By default only open pul
 @param repoSlug This can either be the repository slug or the UUID of the repository, surrounded by curly-braces, for example: &#x60;{repository UUID}&#x60;.
 @param optional (nil or map[string]interface{}) with one or more of:
     @param "state" (string) Only return pull requests that are in this state. This parameter can be repeated.
+    @param "page" (int32) Which page to retrieve
+    @param "pagelen" (int32) How many pull requests to retrieve per page
 @return PaginatedPullrequests*/
 func (a *PullrequestsApiService) RepositoriesUsernameRepoSlugPullrequestsGet(ctx context.Context, username string, repoSlug string, localVarOptionals map[string]interface{}) (PaginatedPullrequests, *http.Response, error) {
 	var (
@@ -608,9 +610,21 @@ func (a *PullrequestsApiService) RepositoriesUsernameRepoSlugPullrequestsGet(ctx
 	if err := typeCheckParameter(localVarOptionals["state"], "string", "state"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["page"], "int32", "page"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["pagelen"], "int32", "pagelen"); err != nil {
+		return successPayload, nil, err
+	}
 
 	if localVarTempParam, localVarOk := localVarOptionals["state"].(string); localVarOk {
 		localVarQueryParams.Add("state", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["page"].(int32); localVarOk {
+		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["pagelen"].(int32); localVarOk {
+		localVarQueryParams.Add("pagelen", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{"application/json"}

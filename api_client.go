@@ -31,7 +31,7 @@ import (
 	"time"
 	"unicode/utf8"
 
-	"golang.org/x/net/context"
+	"context"
 	"golang.org/x/oauth2"
 )
 
