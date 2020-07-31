@@ -18,13 +18,12 @@ var paginatedTemplate = template.Must(template.New("").Parse(`// Code generated 
 package bitbucket
 
 import (
+	"context"
 	"encoding/json"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
-
-	"golang.org/x/net/context"
 )
 
 // PagingApiService provides paging for all paginated APIs
