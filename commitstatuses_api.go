@@ -294,7 +294,7 @@ func (a *CommitstatusesApiService) RepositoriesUsernameRepoSlugCommitNodeStatuse
  @param node The commit&#39;s SHA1.
  @param repoSlug This can either be the repository slug or the UUID of the repository, surrounded by curly-braces, for example: &#x60;{repository UUID}&#x60;. 
  @return PaginatedCommitstatuses*/
-func (a *CommitstatusesApiService) RepositoriesUsernameRepoSlugCommitNodeStatusesGet(ctx context.Context, username string, node string, repoSlug string) (PaginatedCommitstatuses,  *http.Response, error) {
+func (a *CommitstatusesApiService) RepositoriesUsernameRepoSlugCommitNodeStatusesGet(ctx context.Context, username string, node string, repoSlug string, localVarOptionals map[string]interface{}) (PaginatedCommitstatuses,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -313,6 +313,19 @@ func (a *CommitstatusesApiService) RepositoriesUsernameRepoSlugCommitNodeStatuse
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if err := typeCheckParameter(localVarOptionals["page"], "int32", "page"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["pagelen"], "int32", "pagelen"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam, localVarOk := localVarOptionals["page"].(int32); localVarOk {
+		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["pagelen"].(int32); localVarOk {
+		localVarQueryParams.Add("pagelen", parameterToString(localVarTempParam, ""))
+	}
 
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
