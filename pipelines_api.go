@@ -1406,7 +1406,7 @@ func (a *PipelinesApiService) GetPipelinesForRepository(ctx context.Context, use
 	if localVarTempParam, localVarOk := localVarOptionals["sort"].(string); localVarOk {
 		localVarQueryParams.Add("sort", parameterToString(localVarTempParam, ""))
 	}
-	if localVarTempParam, localVarOk := localVarOptionals["sort"].(string); localVarOk {
+	if localVarTempParam, localVarOk := localVarOptionals["target.ref_name"].(string); localVarOk {
 		localVarQueryParams.Add("target.ref_name", parameterToString(localVarTempParam, ""))
 	}
 
