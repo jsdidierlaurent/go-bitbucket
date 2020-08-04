@@ -11,6 +11,11 @@
 package bitbucket
 
 type PipelineTarget struct {
-
 	Type_ string `json:"type"`
+
+	// The type of reference (branch/tag).
+	RefType string `json:"ref_type,omitempty"`
+
+	// The name of the reference.
+	RefName string `json:"ref_name,omitempty"`
 }

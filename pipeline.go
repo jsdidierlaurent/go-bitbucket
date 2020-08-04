@@ -30,12 +30,12 @@ type Pipeline struct {
 	Repository *Repository `json:"repository,omitempty"`
 
 	// The target that the pipeline built.
-	Target interface{} `json:"target,omitempty"`
+	Target *PipelineTarget `json:"target,omitempty"`
 
 	// The trigger used for the pipeline.
-	Trigger interface{}  `json:"trigger,omitempty"`
+	Trigger *PipelineTrigger  `json:"trigger,omitempty"`
 
-	State interface{} `json:"state,omitempty"`
+	State *PipelineState `json:"state,omitempty"`
 
 	// The timestamp when the pipeline was created.
 	CreatedOn time.Time `json:"created_on,omitempty"`

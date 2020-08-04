@@ -11,6 +11,8 @@
 package bitbucket
 
 type PipelineState struct {
-
 	Type_ string `json:"type"`
+
+	// The name of pipeline state.
+	Name string `json:"name,omitempty"`
 }
