@@ -1366,7 +1366,7 @@ func (a *PipelinesApiService) GetPipelineVariablesForUser(ctx context.Context, u
  @param username The account.
  @param repoSlug The repository.
  @return PaginatedPipelines*/
-func (a *PipelinesApiService) GetPipelinesForRepository(ctx context.Context, username string, repoSlug string) (PaginatedPipelines,  *http.Response, error) {
+func (a *PipelinesApiService) GetPipelinesForRepository(ctx context.Context, username string, repoSlug string, localVarOptionals map[string]interface{}) (PaginatedPipelines,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1384,6 +1384,25 @@ func (a *PipelinesApiService) GetPipelinesForRepository(ctx context.Context, use
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if err := typeCheckParameter(localVarOptionals["page"], "int32", "page"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["pagelen"], "int32", "pagelen"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["sort"], "string", "sort"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam, localVarOk := localVarOptionals["page"].(int32); localVarOk {
+		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["pagelen"].(int32); localVarOk {
+		localVarQueryParams.Add("pagelen", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["sort"].(string); localVarOk {
+		localVarQueryParams.Add("sort", parameterToString(localVarTempParam, ""))
+	}
 
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
