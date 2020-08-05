@@ -13,4 +13,6 @@ package bitbucket
 type PipelineStateCompletedResult struct {
 
 	Type_ string `json:"type"`
+
+	Name string `json:"name,omitempty"`
 }

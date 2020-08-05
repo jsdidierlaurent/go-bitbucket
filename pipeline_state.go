@@ -15,4 +15,10 @@ type PipelineState struct {
 
 	// The name of pipeline state.
 	Name string `json:"name,omitempty"`
+
+	// A result of a completed state of a pipeline.
+	Result *PipelineStateCompletedResult `json:"result,omitempty"`
+
+	// A stage of an in progress state of a pipeline.
+	Stage *PipelineStateInProgressStage `json:"stage,omitempty"`
 }

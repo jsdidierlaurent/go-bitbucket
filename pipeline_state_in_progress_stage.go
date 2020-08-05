@@ -13,4 +13,6 @@ package bitbucket
 type PipelineStateInProgressStage struct {
 
 	Type_ string `json:"type"`
+
+	Name string `json:"name,omitempty"`
 }
