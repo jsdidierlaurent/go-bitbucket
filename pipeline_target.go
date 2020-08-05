@@ -18,4 +18,6 @@ type PipelineTarget struct {
 
 	// The name of the reference.
 	RefName string `json:"ref_name,omitempty"`
+
+	Commit *Commit `json:"commit,omitempty"`
 }
