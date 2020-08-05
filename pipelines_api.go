@@ -1393,8 +1393,6 @@ func (a *PipelinesApiService) GetPipelinesForRepository(ctx context.Context, use
 	if err := typeCheckParameter(localVarOptionals["sort"], "string", "sort"); err != nil {
 		return successPayload, nil, err
 	}
-		return successPayload, nil, err
-	}
 
 	if localVarTempParam, localVarOk := localVarOptionals["page"].(int32); localVarOk {
 		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
