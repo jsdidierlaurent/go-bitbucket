@@ -30,7 +30,7 @@ type Pipeline struct {
 	Repository *Repository `json:"repository,omitempty"`
 
 	// The target that the pipeline built.
-	Target *PipelineTarget `json:"target,omitempty"`
+	Target *PipelineRefTarget `json:"target,omitempty"`
 
 	// The trigger used for the pipeline.
 	Trigger *PipelineTrigger  `json:"trigger,omitempty"`
