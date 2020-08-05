@@ -35,7 +35,7 @@ type Pipeline struct {
 	// The trigger used for the pipeline.
 	Trigger *PipelineTrigger  `json:"trigger,omitempty"`
 
-	State *PipelineState `json:"state,omitempty"`
+	State interface{} `json:"state,omitempty"`
 
 	// The timestamp when the pipeline was created.
 	CreatedOn time.Time `json:"created_on,omitempty"`
