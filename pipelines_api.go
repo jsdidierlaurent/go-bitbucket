@@ -1393,6 +1393,12 @@ func (a *PipelinesApiService) GetPipelinesForRepository(ctx context.Context, use
 	if err := typeCheckParameter(localVarOptionals["sort"], "string", "sort"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["target.ref_name"], "string", "target.ref_name"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["target.commit.hash"], "string", "target.commit.hash"); err != nil {
+		return successPayload, nil, err
+	}
 
 	if localVarTempParam, localVarOk := localVarOptionals["page"].(int32); localVarOk {
 		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
@@ -1402,6 +1408,12 @@ func (a *PipelinesApiService) GetPipelinesForRepository(ctx context.Context, use
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["sort"].(string); localVarOk {
 		localVarQueryParams.Add("sort", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["target.ref_name"].(string); localVarOk {
+		localVarQueryParams.Add("target.ref_name", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["target.commit.hash"].(string); localVarOk {
+		localVarQueryParams.Add("target.commit.hash", parameterToString(localVarTempParam, ""))
 	}
 
 	// to determine the Content-Type header
